@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,39 +29,20 @@
 }
 
 - (IBAction)nineButtonAction:(id)sender {
-    [self updateLabel: @"9"];
+    
 }
-- (IBAction)eightButtonAction:(id)sender{
-    [self updateLabel: @"8"];
+-(void)shadeButton:(UIButton*)sender{
+    sender.selected = !sender.selected;
+    if([sender.titleLabel.text isEqualToString:@"C"]){
+        self.displayLabel.text=@"";
+    }
+    else{
+        [self updateLabel: [NSString stringWithFormat:@"%@", sender.titleLabel.text]];
+
+    }
 }
-- (IBAction)sevenButtonAction:(id)sender{
-    [self updateLabel: @"7"];
-}
-- (IBAction)sixButtonAction:(id)sender{
-    [self updateLabel: @"6"];
-}
-- (IBAction)fiveButtonAction:(id)sender{
-    [self updateLabel: @"5"];
-}
-- (IBAction)fourButtonAction:(id)sender{
-    [self updateLabel: @"4"];
-}
-- (IBAction)threeButtonAction:(id)sender{
-    [self updateLabel: @"3"];
-}
-- (IBAction)twoButtonAction:(id)sender{
-    [self updateLabel: @"2"];
-}
-- (IBAction)oneButtonAction:(id)sender{
-    [self updateLabel: @"1"];
-}
-- (IBAction)zeroButtonAction:(id)sender{
-    [self updateLabel: @"0"];
-}
-- (IBAction)decimalButtonAction:(id)sender{
-    [self updateLabel: @"."];
-}
-- (IBAction)clearButtonAction:(id)sender {
-    self.displayLabel.text = @"";
+
+- (IBAction)unShadeButton:(UIButton *)sender {
+    sender.selected = !sender.selected;
 }
 @end

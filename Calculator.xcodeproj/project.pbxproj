@@ -15,6 +15,7 @@
 		C49260D11B4AC50C00586B93 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C49260CF1B4AC50C00586B93 /* LaunchScreen.xib */; };
 		C49260DD1B4AC50C00586B93 /* CalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C49260DC1B4AC50C00586B93 /* CalculatorTests.m */; };
 		C49260E71B4AD4DE00586B93 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C49260E61B4AD4DE00586B93 /* icon.png */; };
+		C4A5C22C1B4B053E00B3F31C /* NSNumber+ArithmeticProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A5C22B1B4B053E00B3F31C /* NSNumber+ArithmeticProtocol.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,9 @@
 		C49260DB1B4AC50C00586B93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C49260DC1B4AC50C00586B93 /* CalculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalculatorTests.m; sourceTree = "<group>"; };
 		C49260E61B4AD4DE00586B93 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		C4A5C2241B4B019700B3F31C /* ArithmeticProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArithmeticProtocol.h; sourceTree = "<group>"; };
+		C4A5C22A1B4B053E00B3F31C /* NSNumber+ArithmeticProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+ArithmeticProtocol.h"; sourceTree = "<group>"; };
+		C4A5C22B1B4B053E00B3F31C /* NSNumber+ArithmeticProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+ArithmeticProtocol.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,9 @@
 				C49260C51B4AC50C00586B93 /* AppDelegate.m */,
 				C49260C71B4AC50C00586B93 /* ViewController.h */,
 				C49260C81B4AC50C00586B93 /* ViewController.m */,
+				C4A5C22A1B4B053E00B3F31C /* NSNumber+ArithmeticProtocol.h */,
+				C4A5C22B1B4B053E00B3F31C /* NSNumber+ArithmeticProtocol.m */,
+				C4A5C2241B4B019700B3F31C /* ArithmeticProtocol.h */,
 				C49260CA1B4AC50C00586B93 /* Main.storyboard */,
 				C49260CD1B4AC50C00586B93 /* Images.xcassets */,
 				C49260CF1B4AC50C00586B93 /* LaunchScreen.xib */,
@@ -225,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C49260C91B4AC50C00586B93 /* ViewController.m in Sources */,
+				C4A5C22C1B4B053E00B3F31C /* NSNumber+ArithmeticProtocol.m in Sources */,
 				C49260C61B4AC50C00586B93 /* AppDelegate.m in Sources */,
 				C49260C31B4AC50C00586B93 /* main.m in Sources */,
 			);
@@ -429,6 +437,7 @@
 				C49260E21B4AC50C00586B93 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C49260E31B4AC50C00586B93 /* Build configuration list for PBXNativeTarget "CalculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -437,6 +446,7 @@
 				C49260E51B4AC50C00586B93 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
