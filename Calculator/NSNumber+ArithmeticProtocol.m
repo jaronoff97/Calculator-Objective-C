@@ -14,16 +14,16 @@
     return [NSNumber numberWithFloat:sum];
 }
 -(NSNumber*) subtract: (NSNumber*) other{
-    float sum = self.floatValue - other.floatValue;
-    return [NSNumber numberWithFloat:sum];
+    float difference = self.floatValue - other.floatValue;
+    return [NSNumber numberWithFloat:difference];
 }
 -(NSNumber*) divide: (NSNumber*) other{
-    float sum = self.floatValue / other.floatValue;
-    return [NSNumber numberWithFloat:sum];
+    float quotient = self.floatValue / other.floatValue;
+    return [NSNumber numberWithFloat:quotient];
 }
 -(NSNumber*) multiply: (NSNumber*) other{
-    float sum = self.floatValue * other.floatValue;
-    return [NSNumber numberWithFloat:sum];
+    float product = self.floatValue * other.floatValue;
+    return [NSNumber numberWithFloat:product];
 }
 
 @end

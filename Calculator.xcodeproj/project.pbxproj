@@ -16,6 +16,7 @@
 		C49260DD1B4AC50C00586B93 /* CalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C49260DC1B4AC50C00586B93 /* CalculatorTests.m */; };
 		C49260E71B4AD4DE00586B93 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C49260E61B4AD4DE00586B93 /* icon.png */; };
 		C4A5C22C1B4B053E00B3F31C /* NSNumber+ArithmeticProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A5C22B1B4B053E00B3F31C /* NSNumber+ArithmeticProtocol.m */; };
+		C4A5C22F1B4B0C0500B3F31C /* JAOperator.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A5C22E1B4B0C0500B3F31C /* JAOperator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,8 @@
 		C4A5C2241B4B019700B3F31C /* ArithmeticProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArithmeticProtocol.h; sourceTree = "<group>"; };
 		C4A5C22A1B4B053E00B3F31C /* NSNumber+ArithmeticProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+ArithmeticProtocol.h"; sourceTree = "<group>"; };
 		C4A5C22B1B4B053E00B3F31C /* NSNumber+ArithmeticProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+ArithmeticProtocol.m"; sourceTree = "<group>"; };
+		C4A5C22D1B4B0C0500B3F31C /* JAOperator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAOperator.h; sourceTree = "<group>"; };
+		C4A5C22E1B4B0C0500B3F31C /* JAOperator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAOperator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +97,8 @@
 				C49260C81B4AC50C00586B93 /* ViewController.m */,
 				C4A5C22A1B4B053E00B3F31C /* NSNumber+ArithmeticProtocol.h */,
 				C4A5C22B1B4B053E00B3F31C /* NSNumber+ArithmeticProtocol.m */,
+				C4A5C22D1B4B0C0500B3F31C /* JAOperator.h */,
+				C4A5C22E1B4B0C0500B3F31C /* JAOperator.m */,
 				C4A5C2241B4B019700B3F31C /* ArithmeticProtocol.h */,
 				C49260CA1B4AC50C00586B93 /* Main.storyboard */,
 				C49260CD1B4AC50C00586B93 /* Images.xcassets */,
@@ -235,6 +240,7 @@
 				C4A5C22C1B4B053E00B3F31C /* NSNumber+ArithmeticProtocol.m in Sources */,
 				C49260C61B4AC50C00586B93 /* AppDelegate.m in Sources */,
 				C49260C31B4AC50C00586B93 /* main.m in Sources */,
+				C4A5C22F1B4B0C0500B3F31C /* JAOperator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

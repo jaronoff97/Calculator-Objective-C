@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 
+
 @interface ViewController ()
 
 @end
@@ -26,10 +27,6 @@
 }
 -(void) updateLabel: (NSString*) newDigit{
     self.displayLabel.text = [self.displayLabel.text stringByAppendingFormat:@"%@", newDigit];
-}
-
-- (IBAction)nineButtonAction:(id)sender {
-    
 }
 -(void)shadeButton:(UIButton*)sender{
     sender.selected = !sender.selected;

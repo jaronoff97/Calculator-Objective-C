@@ -30,7 +30,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="shadeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WOH-Iz-JI1"/>
+                                    <action selector="shadeButton:" destination="BYZ-38-t0r" eventType="touchDown" id="FPQ-fh-rR0"/>
                                     <action selector="unShadeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mtm-vg-gNe"/>
                                 </connections>
                             </button>
@@ -41,7 +41,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="shadeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JWt-iO-ZF4"/>
+                                    <action selector="shadeButton:" destination="BYZ-38-t0r" eventType="touchDown" id="v59-Mn-Q62"/>
                                     <action selector="unShadeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mX6-HW-5Ph"/>
                                 </connections>
                             </button>
@@ -52,7 +52,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="shadeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="grs-JB-RWo"/>
+                                    <action selector="shadeButton:" destination="BYZ-38-t0r" eventType="touchDown" id="Xff-s3-l30"/>
                                     <action selector="unShadeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BDU-1w-QQ8"/>
                                 </connections>
                             </button>
@@ -63,7 +63,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="shadeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BiR-zx-4Kl"/>
+                                    <action selector="shadeButton:" destination="BYZ-38-t0r" eventType="touchDown" id="Ndz-g0-F2f"/>
                                     <action selector="unShadeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u6m-z5-od1"/>
                                 </connections>
                             </button>
@@ -74,7 +74,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="shadeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0YL-K4-L42"/>
+                                    <action selector="shadeButton:" destination="BYZ-38-t0r" eventType="touchDown" id="Elw-kB-ImO"/>
                                     <action selector="unShadeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rJH-Up-ugD"/>
                                 </connections>
                             </button>
@@ -85,7 +85,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="shadeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AeA-5G-bGk"/>
+                                    <action selector="shadeButton:" destination="BYZ-38-t0r" eventType="touchDown" id="J4R-PR-5rE"/>
                                     <action selector="unShadeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f8Y-ks-tu2"/>
                                 </connections>
                             </button>
@@ -96,7 +96,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="shadeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ouZ-Qi-ZRf"/>
+                                    <action selector="shadeButton:" destination="BYZ-38-t0r" eventType="touchDown" id="cww-Ln-lsS"/>
                                     <action selector="unShadeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SXj-YW-tb0"/>
                                 </connections>
                             </button>
@@ -107,7 +107,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="shadeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cFw-RY-S1Z"/>
+                                    <action selector="shadeButton:" destination="BYZ-38-t0r" eventType="touchDown" id="SGp-Zl-o4f"/>
                                     <action selector="unShadeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mZa-5m-Fds"/>
                                 </connections>
                             </button>
@@ -118,7 +118,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="shadeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CxL-DY-UT6"/>
+                                    <action selector="shadeButton:" destination="BYZ-38-t0r" eventType="touchDown" id="6Ki-kL-cME"/>
                                     <action selector="unShadeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2dc-IU-iP8"/>
                                 </connections>
                             </button>
@@ -129,7 +129,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="shadeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NEQ-Dg-UOs"/>
+                                    <action selector="shadeButton:" destination="BYZ-38-t0r" eventType="touchDown" id="5WE-it-3FU"/>
                                     <action selector="unShadeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mpL-k4-jNb"/>
                                 </connections>
                             </button>
@@ -140,7 +140,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="shadeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wjN-Cf-dmw"/>
+                                    <action selector="shadeButton:" destination="BYZ-38-t0r" eventType="touchDown" id="ONe-Lk-zgz"/>
                                     <action selector="unShadeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9H7-1u-Rtw"/>
                                 </connections>
                             </button>
@@ -151,7 +151,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="shadeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mdj-QZ-Y0O"/>
+                                    <action selector="shadeButton:" destination="BYZ-38-t0r" eventType="touchDown" id="8gi-dy-YTm"/>
                                     <action selector="unShadeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0qX-mW-cXa"/>
                                 </connections>
                             </button>
@@ -173,7 +173,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="shadeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="K9X-2f-B2M"/>
+                                    <action selector="shadeButton:" destination="BYZ-38-t0r" eventType="touchDown" id="JYv-3m-Ord"/>
                                     <action selector="unShadeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bPn-Ov-k4x"/>
                                 </connections>
                             </button>
@@ -184,7 +184,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="shadeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hh3-zf-2LM"/>
+                                    <action selector="shadeButton:" destination="BYZ-38-t0r" eventType="touchDown" id="lOu-J7-7u7"/>
                                     <action selector="unShadeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tux-GC-wEY"/>
                                 </connections>
                             </button>
@@ -195,7 +195,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="shadeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="60q-jN-QUz"/>
+                                    <action selector="shadeButton:" destination="BYZ-38-t0r" eventType="touchDown" id="JNZ-er-Gbf"/>
                                     <action selector="unShadeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lth-eH-H6s"/>
                                 </connections>
                             </button>
