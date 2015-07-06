@@ -33,6 +33,12 @@
     if([sender.titleLabel.text isEqualToString:@"C"]){
         self.displayLabel.text=@"";
     }
+    else if ([sender.titleLabel.text isEqualToString:@"±"]){
+        
+    }
+    else if ([sender.titleLabel.text isEqualToString:@"="]){
+        
+    }
     else{
         [self updateLabel: [NSString stringWithFormat:@"%@", sender.titleLabel.text]];
 

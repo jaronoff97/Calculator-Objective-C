@@ -7,7 +7,16 @@
 //
 
 #import "JAOperator.h"
-
 @implementation JAOperator
-
+@synthesize operation;
+@synthesize precedence;
+-(JAOperator*) initWithOperation:(SEL)anOperation precedence:(unsigned int) thePrecedence{
+    self = [super init];
+    if(self){
+        operation = anOperation;
+        precedence = thePrecedence;
+    }
+    
+    return (self);
+}
 @end
