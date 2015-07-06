@@ -12,6 +12,9 @@
 - (IBAction)shadeButton:(UIButton *)sender;
 - (IBAction)unShadeButton:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UILabel *displayLabel;
+- (IBAction)showEQdown:(id)sender;
+- (IBAction)hideEQup:(id)sender;
+-(SEL) getProperSelector: (NSString*) operation;
 
 
 

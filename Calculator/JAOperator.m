@@ -10,6 +10,9 @@
 @implementation JAOperator
 @synthesize operation;
 @synthesize precedence;
+- (NSString *)description {
+    return [NSString stringWithFormat: @"%@", NSStringFromSelector(operation)];
+}
 -(JAOperator*) initWithOperation:(SEL)anOperation precedence:(unsigned int) thePrecedence{
     self = [super init];
     if(self){

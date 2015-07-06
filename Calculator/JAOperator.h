@@ -11,5 +11,6 @@
 @interface JAOperator : NSObject
 @property (assign) unsigned int precedence;
 @property (assign) SEL operation;
+-(NSString* ) description;
 -(JAOperator*) initWithOperation:(SEL)anOperation precedence:(unsigned int) thePrecedence;
 @end

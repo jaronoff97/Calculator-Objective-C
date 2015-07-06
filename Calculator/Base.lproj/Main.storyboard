@@ -227,6 +227,17 @@
                                     <action selector="unShadeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VJq-h5-T4S"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XxS-fp-BRN">
+                                <rect key="frame" x="490" y="478" width="110" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Show EQ">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="hideEQup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sZc-YM-7UD"/>
+                                    <action selector="showEQdown:" destination="BYZ-38-t0r" eventType="touchDown" id="xQp-a3-cUq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -273,6 +284,7 @@
                             <constraint firstItem="h6w-nS-dPD" firstAttribute="width" secondItem="o8L-gh-vAc" secondAttribute="width" id="ceF-Yr-hsD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ymN-X6-0WT" secondAttribute="trailing" constant="-16" id="eR3-uc-Iqt"/>
                             <constraint firstItem="h6w-nS-dPD" firstAttribute="width" secondItem="Q1B-cS-qPS" secondAttribute="width" id="eeb-i7-mEe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XxS-fp-BRN" secondAttribute="trailing" constant="-16" id="fz6-LR-Tb6"/>
                             <constraint firstItem="ymN-X6-0WT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="gat-bH-ETt"/>
                             <constraint firstItem="GWc-eE-Wkv" firstAttribute="top" secondItem="fMo-zl-CLO" secondAttribute="bottom" id="gjN-dL-nXS"/>
                             <constraint firstItem="h6w-nS-dPD" firstAttribute="width" secondItem="h5V-OS-Iv2" secondAttribute="width" id="hmP-ix-NWw"/>
@@ -295,6 +307,8 @@
                             <constraint firstItem="aP4-Xh-bbL" firstAttribute="leading" secondItem="h5V-OS-Iv2" secondAttribute="trailing" id="waF-Og-N9s"/>
                             <constraint firstItem="0mZ-8V-EsE" firstAttribute="leading" secondItem="6VJ-Ek-su8" secondAttribute="trailing" id="x63-8y-CR2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kUA-ZC-ZJo" secondAttribute="trailing" constant="-16" id="xFG-Ff-KJw"/>
+                            <constraint firstItem="kUA-ZC-ZJo" firstAttribute="width" secondItem="XxS-fp-BRN" secondAttribute="width" id="yLu-gY-Ef6"/>
+                            <constraint firstItem="XxS-fp-BRN" firstAttribute="top" secondItem="kUA-ZC-ZJo" secondAttribute="bottom" id="yrk-O7-EHx"/>
                         </constraints>
                     </view>
                     <connections>
