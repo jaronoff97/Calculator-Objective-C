@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+
 - (IBAction)shadeButton:(UIButton *)sender;
 - (IBAction)unShadeButton:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UILabel *displayLabel;
--(void*) setButtonColors: (UIColor*)numberColor: (UIColor*)operationColor: (UIColor*)specialColor;
 - (IBAction)showEQdown:(id)sender;
 - (IBAction)hideEQup:(id)sender;
 -(SEL) getProperSelector: (NSString*) operation;
@@ -20,7 +20,7 @@
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *operationButtons;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *specialButtons;
 
-
+-(void) setButtonColors: (NSString*) numberColorString opColor: (NSString*) operationColorString specColor: (NSString*) specialColorString;
 
 @end
 

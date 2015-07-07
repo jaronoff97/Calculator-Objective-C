@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C45BE6CC1B4C5D57001359AB /* JACalculatorBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = C45BE6CB1B4C5D57001359AB /* JACalculatorBrain.m */; };
 		C49260C31B4AC50C00586B93 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C49260C21B4AC50C00586B93 /* main.m */; };
 		C49260C61B4AC50C00586B93 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C49260C51B4AC50C00586B93 /* AppDelegate.m */; };
 		C49260C91B4AC50C00586B93 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C49260C81B4AC50C00586B93 /* ViewController.m */; };
@@ -31,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C45BE6CA1B4C5D57001359AB /* JACalculatorBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JACalculatorBrain.h; sourceTree = "<group>"; };
+		C45BE6CB1B4C5D57001359AB /* JACalculatorBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JACalculatorBrain.m; sourceTree = "<group>"; };
 		C49260BD1B4AC50C00586B93 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C49260C11B4AC50C00586B93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C49260C21B4AC50C00586B93 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -98,6 +101,8 @@
 				C49260C51B4AC50C00586B93 /* AppDelegate.m */,
 				C49260C71B4AC50C00586B93 /* ViewController.h */,
 				C49260C81B4AC50C00586B93 /* ViewController.m */,
+				C45BE6CA1B4C5D57001359AB /* JACalculatorBrain.h */,
+				C45BE6CB1B4C5D57001359AB /* JACalculatorBrain.m */,
 				C4A5C22A1B4B053E00B3F31C /* NSNumber+ArithmeticProtocol.h */,
 				C4A5C22B1B4B053E00B3F31C /* NSNumber+ArithmeticProtocol.m */,
 				C4A5C22D1B4B0C0500B3F31C /* JAOperator.h */,
@@ -242,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C49260C91B4AC50C00586B93 /* ViewController.m in Sources */,
+				C45BE6CC1B4C5D57001359AB /* JACalculatorBrain.m in Sources */,
 				C4A5C22C1B4B053E00B3F31C /* NSNumber+ArithmeticProtocol.m in Sources */,
 				C49260C61B4AC50C00586B93 /* AppDelegate.m in Sources */,
 				C49260C31B4AC50C00586B93 /* main.m in Sources */,

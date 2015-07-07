@@ -9,22 +9,31 @@
 #import "ViewController.h"
 #import "JAOperator.h"
 #import "NSNumber+ArithmeticProtocol.h"
+#import "JACalculatorBrain.h"
 
-NSMutableArray* equationArray;
 NSString* equation;
 NSString* displayText;
+JACalculatorBrain* myBrain;
 
 @interface ViewController ()
 
 @end
 
 @implementation ViewController
-
+- (void)viewWillAppear:(BOOL)animated{
+    if([myBrain.specialButtonColorGlobal length]>=5){
+        [self setButtonColors:myBrain.numberButtonColorGlobal opColor:myBrain.operatorButtonColorGlobal specColor:myBrain.specialButtonColorGlobal backColor:myBrain.backgroundColorGlobal];
+    }
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     equation = @"";
     displayText = @"";
-    equationArray = [NSMutableArray array];
+    myBrain = [JACalculatorBrain theBrain];
+    myBrain.numberButtonColorGlobal= @"#D7DB00";
+    myBrain.operatorButtonColorGlobal= @"#000000";
+    myBrain.specialButtonColorGlobal= @"#00FF00";
+    myBrain.backgroundColorGlobal= @"#FFFFFF";
     // Do any additional setup after loading the view, typically from a nib.
 
 }
@@ -32,7 +41,11 @@ NSString* displayText;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(void) setButtonColors: (UIColor*)numberColor: (UIColor*)operationColor: (UIColor*)specialColor{
+-(void) setButtonColors: (NSString*) numberColorString opColor: (NSString*) operationColorString specColor: (NSString*) specialColorString backColor:(NSString*) backgroundColorString{
+    UIColor* numberColor = [self colorFromHexString:numberColorString];
+    UIColor* operationColor = [self colorFromHexString:operationColorString];
+    UIColor* specialColor = [self colorFromHexString:specialColorString];
+    UIColor* backgroundColor = [self colorFromHexString:backgroundColorString];
     for(UIButton *button in self.numberButtons){
         button.backgroundColor=numberColor;
     }
@@ -42,10 +55,15 @@ NSString* displayText;
     for(UIButton *button in self.specialButtons){
         button.backgroundColor=specialColor;
     }
+    self.view.backgroundColor = backgroundColor;
 }
 -(void) updateLabel: (NSString*) newDigit {
-    if ([newDigit isEqualToString:@"12"]) {
+    if ([newDigit isEqualToString:@"12"] && [displayText rangeOfString:@"."].location==NSNotFound) {
         newDigit = @".";
+        NSLog(@"HAVENT FOUND IT");
+    }
+    if([newDigit isEqualToString:@"12"] && [displayText rangeOfString:@"."].location!=NSNotFound){
+        newDigit=@"";
     }
     equation = [equation stringByAppendingFormat:@"%@", newDigit];//add the new digit to the equation
     displayText = [displayText stringByAppendingFormat:@"%@", newDigit];//add the new digit to the onscreen NSString
@@ -54,25 +72,27 @@ NSString* displayText;
 
 }
 -(void) addOperator: (NSString* ) operatorTag {
-
-    if (operatorTag.intValue > 9) { //check if the onscreen NSString is a number or a operator
-        if ([equationArray count] == 1) { //if theres only one variable in the array (this happens after one calculation is completed
-            JAOperator* operator = [[JAOperator alloc] initWithOperation:[self getProperSelector: operatorTag] precedence:0];//construct the operator!
-            [equationArray addObject: operator];// add the operator.
-            equation = [equation stringByAppendingFormat:@"%@", [self operatorString:operatorTag]];//add the new digit to the equation
+        if (operatorTag.intValue > 9) { //check if the onscreen NSString is a number or a operator
+            if ([[myBrain operationStack] count] == 1) { //if theres only one variable in the array (this happens after one calculation is completed
+                JAOperator* operator = [[JAOperator alloc] initWithOperation:[self getProperSelector: operatorTag] precedence:0];//construct the operator!
+                [[myBrain operationStack] addObject: operator];// add the operator.
+                equation = [equation stringByAppendingFormat:@"%@", [self operatorString:operatorTag]];//add the new digit to the equation
+            }
+            else {
+                NSNumber* number = @([displayText floatValue]);//construct the number
+                [[myBrain operationStack] addObject: number];//add the number
+                NSLog(@"ADDED FIRST NUMBER %@",[[myBrain operationStack] lastObject]);
+                JAOperator* operator = [[JAOperator alloc] initWithOperation:[self getProperSelector: operatorTag] precedence:0];//construct the operator
+                
+                [[myBrain operationStack] addObject: operator];//add the operator
+                
+                equation = [equation stringByAppendingFormat:@"%@", [self operatorString:operatorTag]];//add the new digit to the equation
+                
+            }
+            //self.displayLabel.text=@"";//no matter what clear the screen
+            displayText = @""; //also clear the stored data
         }
-        else {
-            NSNumber* number = @([displayText floatValue]);//construct the number
-            [equationArray addObject: number];//add the number
-            JAOperator* operator = [[JAOperator alloc] initWithOperation:[self getProperSelector: operatorTag] precedence:0];//construct the operator
-            [equationArray addObject: operator];//add the operator
-            equation = [equation stringByAppendingFormat:@"%@", [self operatorString:operatorTag]];//add the new digit to the equation
-
-        }
-        //self.displayLabel.text=@"";//no matter what clear the screen
-        displayText = @""; //also clear the stored data
-    }
-
+    
 }
 -(NSString*) operatorString: (NSString*) opTag {
     switch (opTag.intValue) {
@@ -82,13 +102,6 @@ NSString* displayText;
     case 16: return @"*"; break;
     default: return @""; break;
     }
-}
--(void) printArray {
-    NSLog(@"START ARRAY");
-    for (id varX in equationArray) {
-        NSLog(@"%@", varX); // print each variable in the equation
-    }
-    NSLog(@"END ARRAY");
 }
 -(SEL) getProperSelector: (NSString*) operation {
     SEL selector = NULL;
@@ -128,7 +141,7 @@ NSString* displayText;
     case 11: {
         equation = @"";
         displayText = @"";
-        [equationArray removeAllObjects];
+        [[myBrain operationStack] removeAllObjects];
         [self updateLabel:@""];//remove it all!!! <(._.)>
         break;
     }
@@ -138,44 +151,27 @@ NSString* displayText;
     }
     case 17: {
         number = @([displayText floatValue]);//get the current number
-        [equationArray addObject: number];//add the current number to the array
-        NSNumber* calculation = [self calculate];//CALCULATE THAT STUFF
+        [[myBrain operationStack] addObject: number];//add the current number to the array
+        NSNumber* calculation = [myBrain calculate];//CALCULATE THAT STUFF
         displayText = [NSString stringWithFormat:@"%@", calculation]; //set the display text
         self.displayLabel.text = displayText; //show the display text
-        [equationArray removeAllObjects];//get rid of everything
-        [equationArray addObject:calculation];//add the calculation though!
+        [[myBrain operationStack] removeAllObjects];//get rid of everything
+        [[myBrain operationStack] addObject:calculation];//add the calculation though!
         break;
     }
     default: break;
     }
 }
--(NSNumber*) calculate {
-    NSNumber* firstNum = nil; //construct a first number
-    SEL selector = NULL;// construct a selector
-    NSNumber* secondNum = nil; // construct a second number
-    for (int i = 0; i < [equationArray count]; i++) {
-        if (i % 2 != 0) {
-            selector = NSSelectorFromString([[equationArray objectAtIndex:i] description]); //if the for loop is at the odd intervals remake the proper selector
-        }
-        else {
-            if (firstNum == nil) {
-                firstNum = [equationArray objectAtIndex:i]; //if the firstnum doesnt exist make it.
-            }
-            else if (secondNum == nil) {
-                secondNum = [equationArray objectAtIndex:i]; // same for the second num
-            }
-        }
-        if (secondNum != nil && firstNum != nil && selector != NULL) { // once the three variables are filled
-            IMP implementation = [firstNum methodForSelector:selector];//make an implementation (so there are no memory leaks)
-            NSNumber* (*functionPointer)(id, SEL, NSNumber*);//make a function that points to the selector
-            functionPointer = (NSNumber * (*)(id, SEL, NSNumber*))implementation; //implement the function
-            NSNumber* number = functionPointer(firstNum, selector, secondNum);//use the function
-            firstNum = number; //set the first number as the answer
-            secondNum = nil; // reset the second number
-            selector = NULL; //reset the selector
-        }
-    }
-    return firstNum;//return the first number
+- (UIColor *)colorFromHexString:(NSString *)hexString {
+    unsigned rgbValue = 0;
+    NSScanner *scanner = [NSScanner scannerWithString:hexString];
+    [scanner setScanLocation:1]; // bypass '#' character
+    [scanner scanHexInt:&rgbValue];
+    return [UIColor colorWithRed:((rgbValue & 0xFF0000) >> 16)/255.0 green:((rgbValue & 0xFF00) >> 8)/255.0 blue:(rgbValue & 0xFF)/255.0 alpha:1.0];
+}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    
 }
 - (IBAction)unShadeButton:(UIButton *)sender {
     sender.selected = !sender.selected;//unshade the button

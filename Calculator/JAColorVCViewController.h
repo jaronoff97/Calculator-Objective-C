@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface JAColorVCViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UITextField *customFirstColor;
-@property (weak, nonatomic) IBOutlet UITextField *customSecondColor;
-@property (weak, nonatomic) IBOutlet UITextField *customThirdColor;
+@property (strong, nonatomic) IBOutlet UITextField *customFirstColor;
+@property (strong, nonatomic) IBOutlet UITextField *customSecondColor;
+@property (strong, nonatomic) IBOutlet UITextField *customThirdColor;
+@property (strong, nonatomic) IBOutlet UITextField *customFourthColor;
 
+- (IBAction)committChanges:(id)sender;
 @end
