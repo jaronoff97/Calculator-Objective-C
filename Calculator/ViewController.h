@@ -12,9 +12,13 @@
 - (IBAction)shadeButton:(UIButton *)sender;
 - (IBAction)unShadeButton:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UILabel *displayLabel;
+-(void*) setButtonColors: (UIColor*)numberColor: (UIColor*)operationColor: (UIColor*)specialColor;
 - (IBAction)showEQdown:(id)sender;
 - (IBAction)hideEQup:(id)sender;
 -(SEL) getProperSelector: (NSString*) operation;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *numberButtons;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *operationButtons;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *specialButtons;
 
 
 

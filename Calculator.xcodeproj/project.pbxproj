@@ -17,6 +17,7 @@
 		C4A5C22C1B4B053E00B3F31C /* NSNumber+ArithmeticProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A5C22B1B4B053E00B3F31C /* NSNumber+ArithmeticProtocol.m */; };
 		C4A5C22F1B4B0C0500B3F31C /* JAOperator.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A5C22E1B4B0C0500B3F31C /* JAOperator.m */; };
 		C4A5C2311B4C0FEF00B3F31C /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C4A5C2301B4C0FEF00B3F31C /* icon.png */; };
+		C4A5C2341B4C40B000B3F31C /* JAColorVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A5C2331B4C40B000B3F31C /* JAColorVCViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,8 @@
 		C4A5C22D1B4B0C0500B3F31C /* JAOperator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAOperator.h; sourceTree = "<group>"; };
 		C4A5C22E1B4B0C0500B3F31C /* JAOperator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAOperator.m; sourceTree = "<group>"; };
 		C4A5C2301B4C0FEF00B3F31C /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		C4A5C2321B4C40B000B3F31C /* JAColorVCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAColorVCViewController.h; sourceTree = "<group>"; };
+		C4A5C2331B4C40B000B3F31C /* JAColorVCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAColorVCViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,8 @@
 				C4A5C22E1B4B0C0500B3F31C /* JAOperator.m */,
 				C4A5C2241B4B019700B3F31C /* ArithmeticProtocol.h */,
 				C49260CA1B4AC50C00586B93 /* Main.storyboard */,
+				C4A5C2321B4C40B000B3F31C /* JAColorVCViewController.h */,
+				C4A5C2331B4C40B000B3F31C /* JAColorVCViewController.m */,
 				C49260CD1B4AC50C00586B93 /* Images.xcassets */,
 				C49260CF1B4AC50C00586B93 /* LaunchScreen.xib */,
 				C49260C01B4AC50C00586B93 /* Supporting Files */,
@@ -240,6 +245,7 @@
 				C4A5C22C1B4B053E00B3F31C /* NSNumber+ArithmeticProtocol.m in Sources */,
 				C49260C61B4AC50C00586B93 /* AppDelegate.m in Sources */,
 				C49260C31B4AC50C00586B93 /* main.m in Sources */,
+				C4A5C2341B4C40B000B3F31C /* JAColorVCViewController.m in Sources */,
 				C4A5C22F1B4B0C0500B3F31C /* JAOperator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
