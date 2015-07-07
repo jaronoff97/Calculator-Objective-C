@@ -14,9 +14,9 @@
 		C49260CE1B4AC50C00586B93 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C49260CD1B4AC50C00586B93 /* Images.xcassets */; };
 		C49260D11B4AC50C00586B93 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C49260CF1B4AC50C00586B93 /* LaunchScreen.xib */; };
 		C49260DD1B4AC50C00586B93 /* CalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C49260DC1B4AC50C00586B93 /* CalculatorTests.m */; };
-		C49260E71B4AD4DE00586B93 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C49260E61B4AD4DE00586B93 /* icon.png */; };
 		C4A5C22C1B4B053E00B3F31C /* NSNumber+ArithmeticProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A5C22B1B4B053E00B3F31C /* NSNumber+ArithmeticProtocol.m */; };
 		C4A5C22F1B4B0C0500B3F31C /* JAOperator.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A5C22E1B4B0C0500B3F31C /* JAOperator.m */; };
+		C4A5C2311B4C0FEF00B3F31C /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C4A5C2301B4C0FEF00B3F31C /* icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,12 +43,12 @@
 		C49260D61B4AC50C00586B93 /* CalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C49260DB1B4AC50C00586B93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C49260DC1B4AC50C00586B93 /* CalculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalculatorTests.m; sourceTree = "<group>"; };
-		C49260E61B4AD4DE00586B93 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		C4A5C2241B4B019700B3F31C /* ArithmeticProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArithmeticProtocol.h; sourceTree = "<group>"; };
 		C4A5C22A1B4B053E00B3F31C /* NSNumber+ArithmeticProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+ArithmeticProtocol.h"; sourceTree = "<group>"; };
 		C4A5C22B1B4B053E00B3F31C /* NSNumber+ArithmeticProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+ArithmeticProtocol.m"; sourceTree = "<group>"; };
 		C4A5C22D1B4B0C0500B3F31C /* JAOperator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAOperator.h; sourceTree = "<group>"; };
 		C4A5C22E1B4B0C0500B3F31C /* JAOperator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAOperator.m; sourceTree = "<group>"; };
+		C4A5C2301B4C0FEF00B3F31C /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +90,7 @@
 		C49260BF1B4AC50C00586B93 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				C49260E61B4AD4DE00586B93 /* icon.png */,
+				C4A5C2301B4C0FEF00B3F31C /* icon.png */,
 				C49260C41B4AC50C00586B93 /* AppDelegate.h */,
 				C49260C51B4AC50C00586B93 /* AppDelegate.m */,
 				C49260C71B4AC50C00586B93 /* ViewController.h */,
@@ -215,7 +215,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C49260E71B4AD4DE00586B93 /* icon.png in Resources */,
+				C4A5C2311B4C0FEF00B3F31C /* icon.png in Resources */,
 				C49260CC1B4AC50C00586B93 /* Main.storyboard in Resources */,
 				C49260D11B4AC50C00586B93 /* LaunchScreen.xib in Resources */,
 				C49260CE1B4AC50C00586B93 /* Images.xcassets in Resources */,

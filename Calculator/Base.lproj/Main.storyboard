@@ -288,6 +288,7 @@
                             <constraint firstItem="ymN-X6-0WT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="gat-bH-ETt"/>
                             <constraint firstItem="GWc-eE-Wkv" firstAttribute="top" secondItem="fMo-zl-CLO" secondAttribute="bottom" id="gjN-dL-nXS"/>
                             <constraint firstItem="h6w-nS-dPD" firstAttribute="width" secondItem="h5V-OS-Iv2" secondAttribute="width" id="hmP-ix-NWw"/>
+                            <constraint firstItem="kUA-ZC-ZJo" firstAttribute="height" secondItem="XxS-fp-BRN" secondAttribute="height" id="hmu-WH-SNe"/>
                             <constraint firstItem="h6w-nS-dPD" firstAttribute="width" secondItem="GWc-eE-Wkv" secondAttribute="width" id="iXQ-OJ-vvi"/>
                             <constraint firstItem="h6w-nS-dPD" firstAttribute="width" secondItem="aP4-Xh-bbL" secondAttribute="width" id="ivs-4H-R9s"/>
                             <constraint firstItem="h6w-nS-dPD" firstAttribute="width" secondItem="6VJ-Ek-su8" secondAttribute="width" id="jng-0r-KUE"/>
@@ -307,8 +308,8 @@
                             <constraint firstItem="aP4-Xh-bbL" firstAttribute="leading" secondItem="h5V-OS-Iv2" secondAttribute="trailing" id="waF-Og-N9s"/>
                             <constraint firstItem="0mZ-8V-EsE" firstAttribute="leading" secondItem="6VJ-Ek-su8" secondAttribute="trailing" id="x63-8y-CR2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kUA-ZC-ZJo" secondAttribute="trailing" constant="-16" id="xFG-Ff-KJw"/>
-                            <constraint firstItem="kUA-ZC-ZJo" firstAttribute="width" secondItem="XxS-fp-BRN" secondAttribute="width" id="yLu-gY-Ef6"/>
                             <constraint firstItem="XxS-fp-BRN" firstAttribute="top" secondItem="kUA-ZC-ZJo" secondAttribute="bottom" id="yrk-O7-EHx"/>
+                            <constraint firstItem="kUA-ZC-ZJo" firstAttribute="width" secondItem="XxS-fp-BRN" secondAttribute="width" id="z2P-25-fXu"/>
                         </constraints>
                     </view>
                     <connections>

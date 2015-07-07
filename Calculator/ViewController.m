@@ -34,24 +34,24 @@ NSString* displayText;
     // Dispose of any resources that can be recreated.
 }
 -(void) updateLabel: (NSString*) newDigit{
-    equation = [equation stringByAppendingFormat:@"%@", newDigit];
-    displayText = [displayText stringByAppendingFormat:@"%@", newDigit];
-    if ([newDigit rangeOfCharacterFromSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]].location != NSNotFound) {
-        if([equationArray count]==1){
-            JAOperator* operator = [[JAOperator alloc] initWithOperation:[self getProperSelector: newDigit] precedence:0];
-            [equationArray addObject: operator];
+    equation = [equation stringByAppendingFormat:@"%@", newDigit];//add the new digit to the equation
+    displayText = [displayText stringByAppendingFormat:@"%@", newDigit];//add the new digit to the onscreen NSString
+    if ([newDigit rangeOfCharacterFromSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]].location != NSNotFound) { //check if the onscreen NSString is a number or a operator
+        if([equationArray count]==1){//if theres only one variable in the array (this happens after one calculation is completed
+            JAOperator* operator = [[JAOperator alloc] initWithOperation:[self getProperSelector: newDigit] precedence:0];//construct the operator!
+            [equationArray addObject: operator];// add the operator.
         }
         else{
-        NSNumber* number = @([displayText intValue]);
-        [equationArray addObject: number];
-        JAOperator* operator = [[JAOperator alloc] initWithOperation:[self getProperSelector: newDigit] precedence:0];
-        [equationArray addObject: operator];
+        NSNumber* number = @([displayText intValue]);//construct the number
+        [equationArray addObject: number];//add the number
+        JAOperator* operator = [[JAOperator alloc] initWithOperation:[self getProperSelector: newDigit] precedence:0];//construct the operator
+        [equationArray addObject: operator];//add the operator
         }
-        self.displayLabel.text=@"";
-        displayText=@"";
+        self.displayLabel.text=@"";//no matter what clear the screen
+        displayText=@"";//also clear the stored data
     }
     else{
-        self.displayLabel.text=displayText;
+        self.displayLabel.text=displayText;//if it wasnt an operator set the onscreen text to the stored variable
     }
     
 }
@@ -87,13 +87,20 @@ NSString* displayText;
         [self updateLabel:@""];
     }
     else if ([sender.titleLabel.text isEqualToString:@"±"]){
-        
+        if([displayText rangeOfString:@"-"].location!=NSNotFound){
+            displayText = [displayText stringByReplacingOccurrencesOfString:@"-" withString:@""];
+        }
+        else{
+            displayText = [NSString stringWithFormat:@"-%@",displayText];
+        }
+        [self updateLabel:@""];
     }
     else if ([sender.titleLabel.text isEqualToString:@"="]){
         NSNumber* number = @([displayText intValue]);
         [equationArray addObject: number];
         NSNumber* calculation = [self calculate];
-        self.displayLabel.text=[NSString stringWithFormat:@"%@",calculation];
+        displayText=[NSString stringWithFormat:@"%@",calculation];
+        self.displayLabel.text=displayText;
         [equationArray removeAllObjects];
         [equationArray addObject:calculation];
     }
@@ -119,8 +126,10 @@ NSString* displayText;
             }
         }
         if(secondNum!=nil && firstNum!=nil && selector!=NULL){
-            NSNumber* number = [firstNum performSelector:selector withObject: secondNum];
-            NSLog(@"%@ ======== NUMBER",number);
+            IMP implementation = [firstNum methodForSelector:selector];
+            NSNumber* (*functionPointer)(id, SEL, NSNumber*);
+            functionPointer = (NSNumber* (*)(id,SEL,NSNumber*))implementation;
+            NSNumber* number = functionPointer(firstNum, selector, secondNum);
             firstNum=number;
             secondNum=nil;
             selector=NULL;
