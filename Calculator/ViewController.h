@@ -19,6 +19,7 @@
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *numberButtons;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *operationButtons;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *specialButtons;
+@property (weak, nonatomic) IBOutlet UIButton *debug;
 
 -(void) setButtonColors: (NSString*) numberColorString opColor: (NSString*) operationColorString specColor: (NSString*) specialColorString backColor:(NSString*) backgroundColorString;
 

@@ -24,6 +24,7 @@ JACalculatorBrain* myBrain;
     if([myBrain.specialButtonColorGlobal length]>=5){
         [self setButtonColors:myBrain.numberButtonColorGlobal opColor:myBrain.operatorButtonColorGlobal specColor:myBrain.specialButtonColorGlobal backColor:myBrain.backgroundColorGlobal];
     }
+    self.debug.hidden=YES;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,6 +35,7 @@ JACalculatorBrain* myBrain;
     myBrain.operatorButtonColorGlobal= @"#000000";
     myBrain.specialButtonColorGlobal= @"#00FF00";
     myBrain.backgroundColorGlobal= @"#FFFFFF";
+    
     // Do any additional setup after loading the view, typically from a nib.
 
 }
@@ -46,6 +48,7 @@ JACalculatorBrain* myBrain;
     UIColor* operationColor = [self colorFromHexString:operationColorString];
     UIColor* specialColor = [self colorFromHexString:specialColorString];
     UIColor* backgroundColor = [self colorFromHexString:backgroundColorString];
+    self.displayLabel.textColor = [self inverseColor:backgroundColor];
     for(UIButton *button in self.numberButtons){
         button.backgroundColor=numberColor;
     }
@@ -60,7 +63,6 @@ JACalculatorBrain* myBrain;
 -(void) updateLabel: (NSString*) newDigit {
     if ([newDigit isEqualToString:@"12"] && [displayText rangeOfString:@"."].location==NSNotFound) {
         newDigit = @".";
-        NSLog(@"HAVENT FOUND IT");
     }
     if([newDigit isEqualToString:@"12"] && [displayText rangeOfString:@"."].location!=NSNotFound){
         newDigit=@"";
@@ -152,6 +154,9 @@ JACalculatorBrain* myBrain;
     case 17: {
         number = @([displayText floatValue]);//get the current number
         [[myBrain calculationStack] addObject: number];//add the current number to the array
+        if([[[myBrain calculationStack] objectAtIndex:0] isEqual:@1234]){
+            self.debug.hidden=NO;
+        }
         NSNumber* calculation = [myBrain calculate];//CALCULATE THAT STUFF
         displayText = [NSString stringWithFormat:@"%@", calculation]; //set the display text
         self.displayLabel.text = displayText; //show the display text
@@ -172,6 +177,12 @@ JACalculatorBrain* myBrain;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     
+}
+-(UIColor*) inverseColor: (UIColor*) oldColor
+{
+    CGFloat r,g,b,a;
+    [oldColor getRed:&r green:&g blue:&b alpha:&a];
+    return [UIColor colorWithRed:1.-r green:1.-g blue:1.-b alpha:a];
 }
 - (IBAction)unShadeButton:(UIButton *)sender {
     sender.selected = !sender.selected;//unshade the button
