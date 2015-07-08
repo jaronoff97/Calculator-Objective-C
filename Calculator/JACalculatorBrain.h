@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class JAOperator;
 
 @interface JACalculatorBrain : NSObject
 @property (strong, nonatomic) NSMutableArray* calculationStack;
@@ -14,7 +15,9 @@
 @property (nonatomic, retain) NSString* operatorButtonColorGlobal;
 @property (nonatomic, retain) NSString* specialButtonColorGlobal;
 @property (nonatomic, retain) NSString* backgroundColorGlobal;
--(NSNumber*) calculate;
+-(NSNumber*) calculate: (NSNumber*) lastOperand;
 +(JACalculatorBrain*) theBrain;
+-(void) sendOperator:(JAOperator*) theOperator operand:(NSNumber*) theOperand;
 -(void) printArray;
+-(void) clearArray;
 @end

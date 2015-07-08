@@ -75,21 +75,11 @@ JACalculatorBrain* myBrain;
 }
 -(void) addOperator: (NSString* ) operatorTag {
         if (operatorTag.intValue > 9) { //check if the onscreen NSString is a number or a operator
-            if ([[myBrain calculationStack] count] == 1) { //if theres only one variable in the array (this happens after one calculation is completed
-                JAOperator* operator = [[JAOperator alloc] initWithOperation:[self getProperSelector: operatorTag] precedence:0];//construct the operator!
-                [[myBrain calculationStack] addObject: operator];// add the operator.
-                equation = [equation stringByAppendingFormat:@"%@", [self operatorString:operatorTag]];//add the new digit to the equation
-            }
-            else if(![displayText isEqualToString:@""]) {
+            if(![displayText isEqualToString:@""]) {
                 NSNumber* number = @([displayText floatValue]);//construct the number
-                [[myBrain calculationStack] addObject: number];//add the number
-                NSLog(@"ADDED FIRST NUMBER %@",[[myBrain calculationStack] lastObject]);
-                JAOperator* operator = [[JAOperator alloc] initWithOperation:[self getProperSelector: operatorTag] precedence:0];//construct the operator
-                
-                [[myBrain calculationStack] addObject: operator];//add the operator
-                
+                JAOperator* operator = [[JAOperator alloc] initWithOperation:[self getProperSelector: operatorTag] precedence:[self operatorPrecedence:operatorTag]];//construct the operator
+                [myBrain sendOperator:operator operand:number];
                 equation = [equation stringByAppendingFormat:@"%@", [self operatorString:operatorTag]];//add the new digit to the equation
-                
             }
             displayText = @""; //also clear the stored data
         }
@@ -102,6 +92,15 @@ JACalculatorBrain* myBrain;
     case 15: return @"÷"; break;
     case 16: return @"*"; break;
     default: return @""; break;
+    }
+}
+-(unsigned int) operatorPrecedence: (NSString*) opTag{
+    switch (opTag.intValue) {
+        case 13: return 2; break;
+        case 14: return 2; break;
+        case 15: return 3; break;
+        case 16: return 3; break;
+        default: return 0; break;
     }
 }
 -(SEL) getProperSelector: (NSString*) operation {
@@ -153,15 +152,12 @@ JACalculatorBrain* myBrain;
     }
     case 17: {
         number = @([displayText floatValue]);//get the current number
-        [[myBrain calculationStack] addObject: number];//add the current number to the array
-        if([[[myBrain calculationStack] objectAtIndex:0] isEqual:@1234]){
+        if([myBrain calculationStack].count>0 && [[[myBrain calculationStack] objectAtIndex:0] isEqual:@1234]){
             self.debug.hidden=NO;
         }
-        NSNumber* calculation = [myBrain calculate];//CALCULATE THAT STUFF
+        NSNumber* calculation = [myBrain calculate: number];//CALCULATE THAT STUFF
         displayText = [NSString stringWithFormat:@"%@", calculation]; //set the display text
         self.displayLabel.text = displayText; //show the display text
-        [[myBrain calculationStack] removeAllObjects];//get rid of everything
-        [[myBrain calculationStack] addObject:calculation];//add the calculation though!
         break;
     }
     default: break;
