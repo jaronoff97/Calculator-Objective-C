@@ -7,18 +7,19 @@
 //
 
 #import "JACalculatorBrain.h"
+#import "JAOperator.h"
 
 static JACalculatorBrain* _theBrain;
 
 @implementation JACalculatorBrain
-@synthesize operationStack;
+@synthesize calculationStack;
 @synthesize numberButtonColorGlobal;
 @synthesize operatorButtonColorGlobal;
 @synthesize specialButtonColorGlobal;
 @synthesize backgroundColorGlobal;
 
 -(void) initializeArray{
-    operationStack = [NSMutableArray array];
+    calculationStack = [NSMutableArray array];
 }
 +(JACalculatorBrain*) theBrain
 {
@@ -33,16 +34,16 @@ static JACalculatorBrain* _theBrain;
     NSNumber* firstNum = nil; //construct a first number
     SEL selector = NULL;// construct a selector
     NSNumber* secondNum = nil; // construct a second number
-    for (int i = 0; i < [operationStack count]; i++) {
+    for (int i = 0; i < [calculationStack count]; i++) {
         if (i % 2 != 0) {
-            selector = NSSelectorFromString([[operationStack objectAtIndex:i] description]); //if the for loop is at the odd intervals remake the proper selector
+            selector = NSSelectorFromString([[calculationStack objectAtIndex:i] description]); //if the for loop is at the odd intervals remake the proper selector
         }
         else {
             if (firstNum == nil) {
-                firstNum = [operationStack objectAtIndex:i]; //if the firstnum doesnt exist make it.
+                firstNum = [calculationStack objectAtIndex:i]; //if the firstnum doesnt exist make it.
             }
             else if (secondNum == nil) {
-                secondNum = [operationStack objectAtIndex:i]; // same for the second num
+                secondNum = [calculationStack objectAtIndex:i]; // same for the second num
             }
         }
         if (secondNum != nil && firstNum != nil && selector != NULL) { // once the three variables are filled
@@ -57,9 +58,20 @@ static JACalculatorBrain* _theBrain;
     }
     return firstNum;//return the first number
 }
+-(NSMutableArray*) organize{
+    
+    for(int i=0;i<[calculationStack count];i++){
+        if([[calculationStack objectAtIndex:i]isKindOfClass:[JAOperator class]]){
+            
+        }
+    }
+    
+    
+    return calculationStack;
+}
 -(void) printArray {
     NSLog(@"START ARRAY");
-    for (id varX in operationStack) {
+    for (id varX in calculationStack) {
         NSLog(@"%@", varX); // print each variable in the equation
     }
     NSLog(@"END ARRAY");

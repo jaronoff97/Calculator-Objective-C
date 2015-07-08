@@ -73,23 +73,22 @@ JACalculatorBrain* myBrain;
 }
 -(void) addOperator: (NSString* ) operatorTag {
         if (operatorTag.intValue > 9) { //check if the onscreen NSString is a number or a operator
-            if ([[myBrain operationStack] count] == 1) { //if theres only one variable in the array (this happens after one calculation is completed
+            if ([[myBrain calculationStack] count] == 1) { //if theres only one variable in the array (this happens after one calculation is completed
                 JAOperator* operator = [[JAOperator alloc] initWithOperation:[self getProperSelector: operatorTag] precedence:0];//construct the operator!
-                [[myBrain operationStack] addObject: operator];// add the operator.
+                [[myBrain calculationStack] addObject: operator];// add the operator.
                 equation = [equation stringByAppendingFormat:@"%@", [self operatorString:operatorTag]];//add the new digit to the equation
             }
-            else {
+            else if(![displayText isEqualToString:@""]) {
                 NSNumber* number = @([displayText floatValue]);//construct the number
-                [[myBrain operationStack] addObject: number];//add the number
-                NSLog(@"ADDED FIRST NUMBER %@",[[myBrain operationStack] lastObject]);
+                [[myBrain calculationStack] addObject: number];//add the number
+                NSLog(@"ADDED FIRST NUMBER %@",[[myBrain calculationStack] lastObject]);
                 JAOperator* operator = [[JAOperator alloc] initWithOperation:[self getProperSelector: operatorTag] precedence:0];//construct the operator
                 
-                [[myBrain operationStack] addObject: operator];//add the operator
+                [[myBrain calculationStack] addObject: operator];//add the operator
                 
                 equation = [equation stringByAppendingFormat:@"%@", [self operatorString:operatorTag]];//add the new digit to the equation
                 
             }
-            //self.displayLabel.text=@"";//no matter what clear the screen
             displayText = @""; //also clear the stored data
         }
     
@@ -141,22 +140,23 @@ JACalculatorBrain* myBrain;
     case 11: {
         equation = @"";
         displayText = @"";
-        [[myBrain operationStack] removeAllObjects];
+        [[myBrain calculationStack] removeAllObjects];
         [self updateLabel:@""];//remove it all!!! <(._.)>
         break;
     }
     case 13: case 14: case 15: case 16: {
-        [self addOperator: [NSString stringWithFormat:@"%ld", (long)sender.tag]];//otherwise just add the number to equation.
+            [self addOperator: [NSString stringWithFormat:@"%ld", (long)sender.tag]];//otherwise just add the number to equation.
+        
         break;
     }
     case 17: {
         number = @([displayText floatValue]);//get the current number
-        [[myBrain operationStack] addObject: number];//add the current number to the array
+        [[myBrain calculationStack] addObject: number];//add the current number to the array
         NSNumber* calculation = [myBrain calculate];//CALCULATE THAT STUFF
         displayText = [NSString stringWithFormat:@"%@", calculation]; //set the display text
         self.displayLabel.text = displayText; //show the display text
-        [[myBrain operationStack] removeAllObjects];//get rid of everything
-        [[myBrain operationStack] addObject:calculation];//add the calculation though!
+        [[myBrain calculationStack] removeAllObjects];//get rid of everything
+        [[myBrain calculationStack] addObject:calculation];//add the calculation though!
         break;
     }
     default: break;

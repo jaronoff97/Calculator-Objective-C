@@ -415,7 +415,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zvn-2C-YzE">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zvn-2C-YzE">
                                 <rect key="frame" x="277" y="327" width="59" height="30"/>
                                 <state key="normal" title="Committ">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -438,11 +438,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="Zvn-2C-YzE" secondAttribute="centerX" id="1UA-eJ-DTU"/>
                             <constraint firstItem="kwK-iv-MGd" firstAttribute="top" secondItem="LJl-5C-wmU" secondAttribute="bottom" constant="126" id="2Lj-2v-bGf"/>
                             <constraint firstItem="1Te-g3-xBp" firstAttribute="top" secondItem="OaS-Gr-hYh" secondAttribute="bottom" constant="20" id="3Z8-OU-raR"/>
                             <constraint firstItem="Wj0-ju-aMs" firstAttribute="leading" secondItem="rvi-r5-LEi" secondAttribute="trailing" constant="24" id="8b1-Tb-t1w"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YSg-33-2qk" secondAttribute="trailing" constant="19" id="DMl-rI-zcS"/>
                             <constraint firstItem="1Te-g3-xBp" firstAttribute="leading" secondItem="V7U-0r-ftR" secondAttribute="leadingMargin" id="HEl-nU-AN9"/>
+                            <constraint firstItem="Zvn-2C-YzE" firstAttribute="top" secondItem="Nz1-h6-zCt" secondAttribute="bottom" constant="27" id="LSJ-FP-sIs"/>
                             <constraint firstItem="OaS-Gr-hYh" firstAttribute="top" secondItem="3w5-1N-v1h" secondAttribute="bottom" constant="17" id="R0a-rA-ZsX"/>
                             <constraint firstItem="rvi-r5-LEi" firstAttribute="leading" secondItem="V7U-0r-ftR" secondAttribute="leadingMargin" id="R6j-hb-YaP"/>
                             <constraint firstItem="YSg-33-2qk" firstAttribute="leading" secondItem="OaS-Gr-hYh" secondAttribute="trailing" constant="33" id="SQ4-fd-bMz"/>
