@@ -70,8 +70,6 @@ JACalculatorBrain* myBrain;
     equation = [equation stringByAppendingFormat:@"%@", newDigit];//add the new digit to the equation
     displayText = [displayText stringByAppendingFormat:@"%@", newDigit];//add the new digit to the onscreen NSString
     self.displayLabel.text = displayText; //if it wasnt an operator set the onscreen text to the stored variable
-
-
 }
 -(void) addOperator: (NSString* ) operatorTag {
         if (operatorTag.intValue > 9) { //check if the onscreen NSString is a number or a operator

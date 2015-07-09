@@ -18,6 +18,7 @@
 -(NSNumber*) calculate: (NSNumber*) lastOperand;
 +(JACalculatorBrain*) theBrain;
 -(void) sendOperator:(JAOperator*) theOperator operand:(NSNumber*) theOperand;
--(void) printArray;
+-(NSNumber*) solveExpression: (NSMutableArray*) theArray;
+-(void) printArray: (NSMutableArray*) theArray;
 -(void) clearArray;
 @end

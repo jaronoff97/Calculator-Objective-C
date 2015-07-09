@@ -12,4 +12,6 @@
 -(id) pop;
 -(void) push: (id) object;
 -(id) peek;
+-(id) dequeue;
+-(void) insertAtZero: (id) object;
 @end

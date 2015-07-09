@@ -29,4 +29,15 @@
     }
     return obj;
 }
+-(id) dequeue{
+    id obj = nil;
+    if(self.count >0){
+        obj=[self objectAtIndex:0];
+        [self removeObjectAtIndex:0];
+    }
+    return obj;
+}
+-(void) insertAtZero:(id)object{
+    [self insertObject:object atIndex:0];
+}
 @end
