@@ -15,10 +15,11 @@
 @property (nonatomic, retain) NSString* operatorButtonColorGlobal;
 @property (nonatomic, retain) NSString* specialButtonColorGlobal;
 @property (nonatomic, retain) NSString* backgroundColorGlobal;
--(NSNumber*) calculate: (NSNumber*) lastOperand;
+-(NSNumber*) calculate: (NSMutableArray*) theArray;
 +(JACalculatorBrain*) theBrain;
 -(void) sendOperator:(JAOperator*) theOperator operand:(NSNumber*) theOperand;
--(NSNumber*) solveExpression: (NSMutableArray*) theArray;
+-(NSMutableArray*) organizeExpression: (NSMutableArray*) theArray;
 -(void) printArray: (NSMutableArray*) theArray;
+-(void) addParenthesis: (NSString*) addP;
 -(void) clearArray;
 @end

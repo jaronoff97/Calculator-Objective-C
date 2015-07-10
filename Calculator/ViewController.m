@@ -67,6 +67,12 @@ JACalculatorBrain* myBrain;
     if([newDigit isEqualToString:@"12"] && [displayText rangeOfString:@"."].location!=NSNotFound){
         newDigit=@"";
     }
+    if([newDigit isEqualToString:@")"] || [newDigit isEqualToString:@"("]){
+        equation = [equation stringByAppendingFormat:@"%@", newDigit];//add the new digit to the equation
+        displayText = @"";
+        newDigit=@"";
+    }
+    
     equation = [equation stringByAppendingFormat:@"%@", newDigit];//add the new digit to the equation
     displayText = [displayText stringByAppendingFormat:@"%@", newDigit];//add the new digit to the onscreen NSString
     self.displayLabel.text = displayText; //if it wasnt an operator set the onscreen text to the stored variable
@@ -153,11 +159,41 @@ JACalculatorBrain* myBrain;
         if([myBrain calculationStack].count>0 && [[[myBrain calculationStack] objectAtIndex:0] isEqual:@1234]){
             self.debug.hidden=NO;
         }
-        NSNumber* calculation = [myBrain calculate: number];//CALCULATE THAT STUFF
+        if([[myBrain.calculationStack lastObject]isKindOfClass:[JAOperator class]]){
+            [myBrain.calculationStack addObject:number];
+        }
+        else if([[myBrain.calculationStack lastObject]isKindOfClass:[NSString class]]){
+            
+        }
+        else{
+            break;
+        }
+        NSNumber* calculation = [myBrain calculate: myBrain.calculationStack];//CALCULATE THAT STUFF
         displayText = [NSString stringWithFormat:@"%@", calculation]; //set the display text
         self.displayLabel.text = displayText; //show the display text
         break;
     }
+        case 19:{
+            [myBrain addParenthesis:@"("];
+            [self updateLabel:@"("];
+            break;
+        }
+        case 20:{
+            if(![displayText  isEqual: @""]){
+                NSNumber* number = @([displayText floatValue]);//construct the number
+                [[myBrain calculationStack] addObject:number];
+            }
+                        [myBrain addParenthesis:@")"];
+            [self updateLabel:@")"];
+            break;
+        }
+        case 21:{
+            if(displayText.length>0){
+                displayText = [displayText substringToIndex:[displayText length]-1];
+                self.displayLabel.text =displayText;
+            }
+            break;
+        }
     default: break;
     }
 }

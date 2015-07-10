@@ -195,6 +195,18 @@
                                     <action selector="unShadeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dRM-W2-8Cm"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" tag="20" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wpa-Mx-dU1">
+                                <rect key="frame" x="317" y="456" width="156" height="74"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.16471141919999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title=")">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="shadeButton:" destination="BYZ-38-t0r" eventType="touchDown" id="yN7-Ua-6Ja"/>
+                                    <action selector="unShadeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="p2V-iA-Ksu"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" tag="11" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzW-vd-xoJ">
                                 <rect key="frame" x="317" y="382" width="156" height="74"/>
                                 <color key="backgroundColor" red="1" green="0.090197819205283802" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -278,16 +290,16 @@
                                     <action selector="showEQdown:" destination="BYZ-38-t0r" eventType="touchDown" id="xQp-a3-cUq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="20" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wpa-Mx-dU1">
-                                <rect key="frame" x="317" y="456" width="156" height="74"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.16471141919999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" tag="21" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sd6-Wh-oMG">
+                                <rect key="frame" x="317" y="530" width="156" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.090197819210000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title=")">
+                                <state key="normal" title="del">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="shadeButton:" destination="BYZ-38-t0r" eventType="touchDown" id="yN7-Ua-6Ja"/>
-                                    <action selector="unShadeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="p2V-iA-Ksu"/>
+                                    <action selector="shadeButton:" destination="BYZ-38-t0r" eventType="touchDown" id="JgZ-xJ-tWo"/>
+                                    <action selector="unShadeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MrP-PD-CWN"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -309,6 +321,7 @@
                             <constraint firstItem="TN5-t5-Qcz" firstAttribute="height" secondItem="nqV-la-bet" secondAttribute="height" id="9Mi-lY-lfZ"/>
                             <constraint firstItem="o8L-gh-vAc" firstAttribute="leading" secondItem="aP4-Xh-bbL" secondAttribute="trailing" constant="8" id="9hV-fM-fp2"/>
                             <constraint firstItem="F2r-lj-JOS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="AZd-Cd-sfH"/>
+                            <constraint firstItem="sd6-Wh-oMG" firstAttribute="top" secondItem="wpa-Mx-dU1" secondAttribute="bottom" id="BEY-HW-MTD"/>
                             <constraint firstItem="F2r-lj-JOS" firstAttribute="width" secondItem="xJI-n5-ITa" secondAttribute="width" id="Ceg-bI-Mkc"/>
                             <constraint firstItem="F2r-lj-JOS" firstAttribute="height" secondItem="h6w-nS-dPD" secondAttribute="height" id="Dfo-u0-3U8"/>
                             <constraint firstItem="Q1B-cS-qPS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="E2M-lP-vzG"/>
@@ -319,6 +332,7 @@
                             <constraint firstItem="F2r-lj-JOS" firstAttribute="width" secondItem="HNk-cE-UmD" secondAttribute="width" id="HKR-zb-b0t"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="nqV-la-bet" secondAttribute="bottom" constant="144" id="HS1-1m-err"/>
                             <constraint firstItem="HNk-cE-UmD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="IG5-A7-OkB"/>
+                            <constraint firstItem="XxS-fp-BRN" firstAttribute="leading" secondItem="sd6-Wh-oMG" secondAttribute="trailing" constant="8" id="JNJ-A9-MPr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2Xy-zj-ssj" secondAttribute="trailing" constant="-16" id="K0a-2d-gds"/>
                             <constraint firstItem="kUA-ZC-ZJo" firstAttribute="leading" secondItem="wpa-Mx-dU1" secondAttribute="trailing" constant="8" id="MJd-Pw-yVy"/>
                             <constraint firstItem="F2r-lj-JOS" firstAttribute="width" secondItem="q1a-SJ-tV3" secondAttribute="width" id="MRj-SP-Ltb"/>
@@ -341,6 +355,7 @@
                             <constraint firstItem="TN5-t5-Qcz" firstAttribute="top" secondItem="nqV-la-bet" secondAttribute="bottom" id="U1e-cO-ci0"/>
                             <constraint firstItem="Tp8-47-Qm1" firstAttribute="top" secondItem="Q1B-cS-qPS" secondAttribute="bottom" id="U6A-Ga-vDB"/>
                             <constraint firstItem="F2r-lj-JOS" firstAttribute="width" secondItem="XxS-fp-BRN" secondAttribute="width" id="V2b-DQ-KSA"/>
+                            <constraint firstItem="wpa-Mx-dU1" firstAttribute="width" secondItem="sd6-Wh-oMG" secondAttribute="width" id="V4F-m9-tzH"/>
                             <constraint firstItem="Q1B-cS-qPS" firstAttribute="top" secondItem="F2r-lj-JOS" secondAttribute="bottom" id="VY7-hd-6VC"/>
                             <constraint firstItem="F2r-lj-JOS" firstAttribute="top" secondItem="6VJ-Ek-su8" secondAttribute="bottom" id="Vwq-G9-MJK"/>
                             <constraint firstItem="F2r-lj-JOS" firstAttribute="width" secondItem="Q1B-cS-qPS" secondAttribute="width" id="WaM-6p-tbh"/>
@@ -415,6 +430,8 @@
                         <outletCollection property="numberButtons" destination="HNk-cE-UmD" id="Lq7-8x-o5C"/>
                         <outletCollection property="numberButtons" destination="6VJ-Ek-su8" id="ozQ-rt-i6m"/>
                         <outletCollection property="numberButtons" destination="F2r-lj-JOS" id="kyZ-xK-IC0"/>
+                        <outletCollection property="specialButtons" destination="wpa-Mx-dU1" id="qx0-zf-Yhb"/>
+                        <outletCollection property="specialButtons" destination="TN5-t5-Qcz" id="CPa-YG-cZc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

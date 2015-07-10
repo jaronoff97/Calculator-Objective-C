@@ -30,79 +30,33 @@ static JACalculatorBrain* _theBrain;
     }
     return _theBrain;
 }
--(NSNumber*) calculate: (NSNumber*) lastOperand{
+-(NSNumber*) calculate: (NSMutableArray*) theArray{
     NSNumber* leftHandSide = nil; //construct a first number
     SEL selector = NULL;// construct a selector
     NSNumber* rightHandSide = nil; // construct a second number
     NSNumber* number=nil;
-    if([[self.calculationStack lastObject]isKindOfClass:[JAOperator class]]){
-        [self.calculationStack push:lastOperand];
-    }
-    else{
-        return lastOperand;
-    }
-    NSMutableArray* sortedQueue = [[NSMutableArray alloc] init];
+    [self printArray:calculationStack];
+    NSMutableArray* sortedExpression = [self organizeExpression:theArray];
+    NSLog(@"-----------------------------------------DONE ORGANIZING!-----------------------------------------------");
     NSMutableArray* stack = [[NSMutableArray alloc] init];
-    for(id oper in calculationStack){
-        if([oper isKindOfClass:[NSNumber class]]){
-            [sortedQueue addObject:(NSNumber*) oper];
-        }else{
-            JAOperator* operator = (JAOperator*) oper;
-            while(stack.count!=0 && [operator precedence]<[[stack peek] precedence]){
-                [sortedQueue addObject:[stack pop]];
-            }
-            [stack push: operator];
-        }
-    }
-    while(stack.count>0){
-        [sortedQueue addObject:[stack pop]];
-    }
-    [self printArray:sortedQueue];
-    for(id lastID in sortedQueue){
+       for(id lastID in sortedExpression){
         if([lastID isKindOfClass:[JAOperator class]]){
-            //NSLog(@" - -- - - - - - - - --  - -- - - - - -1 - - - - - - - - - - - - ");
             rightHandSide=(NSNumber*)[stack pop];
             leftHandSide=(NSNumber*)[stack pop];
-            //NSLog(@" - -- - - - - - - - --  - -- - - - - -2 - - - - - - - - - - - - ");
             selector=NSSelectorFromString([lastID description]);
-            //NSLog(@" - -- - - - - - - - --  - -- - - - - -3 - - - - - - - - - - - - ");
             
             NSLog(@"lhs: %@ sel: %@ rhs: %@",leftHandSide,NSStringFromSelector(selector),rightHandSide);
             IMP implementation = [leftHandSide methodForSelector:selector];//make an implementation (so there are no memory leaks)
             NSNumber* (*functionPointer)(id, SEL, NSNumber*);//make a function that points to the selector
             functionPointer = (NSNumber * (*)(id, SEL, NSNumber*))implementation; //implement the function
             number = functionPointer(leftHandSide, selector, rightHandSide);
-            //NSLog(@" - -- - - - - - - - --  - -- - - - - -4 - - - - - - - - - - - - ");
             [stack push:number];
         }
         else{
             [stack push:lastID];
         }
-    }
-    NSLog(@" - -- - - - - - - - --  - -- - - - - -5 - - - - - - - - - - - - ");
-    
-    
-    /*NSNumber* leftHandSide = nil; //construct a first number
-    SEL selector = NULL;// construct a selector
-    NSNumber* rightHandSide = nil; // construct a second number
-    while(self.calculationStack.count>1){
-        leftHandSide=(NSNumber*)calculationStack.dequeue;
-        selector=NSSelectorFromString([self.calculationStack.dequeue description]);
-        rightHandSide=(NSNumber*)calculationStack.dequeue;
-     
-         //rightHandSide=(NSNumber*)calculationStack.pop;
-         //selector=NSSelectorFromString([self.calculationStack.pop description]);
-         //leftHandSide=(NSNumber*)calculationStack.pop;//If you want to use right to left
-     
-        NSLog(@"lhs: %@ sel: %@ rhs: %@",leftHandSide,NSStringFromSelector(selector),rightHandSide);
-        IMP implementation = [leftHandSide methodForSelector:selector];//make an implementation (so there are no memory leaks)
-        NSNumber* (*functionPointer)(id, SEL, NSNumber*);//make a function that points to the selector
-        functionPointer = (NSNumber * (*)(id, SEL, NSNumber*))implementation; //implement the function
-        NSNumber* number = functionPointer(leftHandSide, selector, rightHandSide);//use the function
-        [self.calculationStack insertAtZero:number];*/
-        //[self.calculationStack push:number];//If you want to use right to left
-    
-    
+       }
+    NSLog(@"-----------------------------------------ALL DONE!-----------------------------------------------");
     
     NSNumber* toReturn = (NSNumber*)[stack peek];
     [self clearArray];
@@ -118,11 +72,65 @@ static JACalculatorBrain* _theBrain;
         [self.calculationStack push:theOperator];
     }
 }
--(NSNumber*) solveExpression:(NSMutableArray *)theArray{
-    NSNumber* toReturn;
-    return toReturn;
+-(void) addParenthesis:(NSString *)addP{
+    [self.calculationStack push:addP];
+    
+     }
+-(NSMutableArray*) organizeExpression:(NSMutableArray *)theArray{
+    NSLog(@"-----------------------------------------start!-----------------------------------------------");
+    [self printArray:theArray];
+    NSMutableArray* sortedQueue = [[NSMutableArray alloc] init];
+    NSMutableArray* stack = [[NSMutableArray alloc] init];
+    NSLog(@"-----------------------------------------init!-----------------------------------------------");
+    for(int x=0;x<theArray.count;x++){
+        
+            if([[theArray objectAtIndex:x] isKindOfClass:[NSNumber class]]){
+                [sortedQueue addObject:(NSNumber*) [theArray objectAtIndex:x]];
+                NSLog(@"-----------------------------------------add to sorted queue!-----------------------------------------------");
+            }
+            else if([[theArray objectAtIndex:x] isKindOfClass:[NSString class]]){
+                if([((NSString*)[theArray objectAtIndex:x]) isEqualToString:@"("]){
+                    NSLog(@"-----------------------------------------start the cut!-----------------------------------------------");
+                    NSMutableArray* toSend = [[NSMutableArray alloc] init];
+                    for(int i = x+1;i<theArray.count;i++){
+                        if(!([[theArray objectAtIndex:i]isKindOfClass:[NSString class]] && [[theArray objectAtIndex:i]isEqualToString:@")"])){
+                            [toSend push: [theArray objectAtIndex:i]];
+                        }
+                        x++;
+                    }
+                    NSLog(@"-----------------------------------------recurse!-----------------------------------------------");
+                    [sortedQueue addObjectsFromArray:[self organizeExpression:toSend]];
+                }
+                else if([((NSString*)[theArray objectAtIndex:x]) isEqualToString:@")"]){
+                    
+                    NSLog(@"-----------------------------------------return when ) found!-----------------------------------------------");
+                    while(stack.count>0){
+                        [sortedQueue addObject:[stack pop]];
+                        NSLog(@"-----------------------------------------pop off the rest!-----------------------------------------------");
+                    }
+                    [self printArray:sortedQueue];
+                    return sortedQueue;
+                }
+            }else{
+                JAOperator* operator = (JAOperator*) [theArray objectAtIndex:x];
+                while(stack.count!=0 && [operator precedence]<=[[stack peek] precedence]){
+                    [sortedQueue addObject:[stack pop]];
+                    NSLog(@"-----------------------------------------pop off stack!-----------------------------------------------");
+                }
+                [stack push: operator];
+                NSLog(@"-----------------------------------------push operator!-----------------------------------------------");
+            }
+    }
+    while(stack.count>0){
+        [sortedQueue addObject:[stack pop]];
+        NSLog(@"-----------------------------------------pop off the rest!-----------------------------------------------");
+    }
+    NSLog(@"-----------------------------------------return FINALLY!-----------------------------------------------");
+    [self printArray:sortedQueue];
+    return sortedQueue;
+
 }
--(void) printArray: (NSMutableArray*) theArray {
+-(void) printArray:  (NSMutableArray*) theArray {
     NSLog(@"START ARRAY");
     for (id varX in theArray) {
         NSLog(@"%@", varX); // print each variable in the equation
